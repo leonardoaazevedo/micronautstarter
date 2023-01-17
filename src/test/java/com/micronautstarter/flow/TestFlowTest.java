@@ -39,6 +39,7 @@ class TestFlowTest {
         var response = testFlow.getTestModel();
 
         verify(flowItem).getFlowItem();
+
         assertEquals(testModel, response);
         assertEquals(response.getIdade(), "27");
         assertEquals(response.getNome(), "Leo");
