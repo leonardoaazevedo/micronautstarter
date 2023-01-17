@@ -1,16 +1,19 @@
 package com.micronautstarter.flow;
 
+import com.micronautstarter.flow.item.TestFlowItem;
 import com.micronautstarter.model.TestModel;
-import io.micronaut.core.annotation.ReflectiveAccess;
 import jakarta.inject.Singleton;
-import lombok.AllArgsConstructor;
 
 @Singleton
 public class TestFlow {
+
+    private final TestFlowItem testFlowItem;
+
+    public TestFlow(TestFlowItem testFlowItem) {
+        this.testFlowItem = testFlowItem;
+    }
+
     public TestModel getTestModel() {
-        return TestModel.builder()
-                .nome("Leo")
-                .idade("27")
-                .build();
+        return testFlowItem.getFlowItem();
     }
 }
