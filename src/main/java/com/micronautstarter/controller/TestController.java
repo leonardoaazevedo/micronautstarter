@@ -9,18 +9,18 @@ import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;
 import io.micronaut.http.annotation.Status;
 import jakarta.inject.Singleton;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @Singleton
+@RequiredArgsConstructor
 @Controller("/test")
 public class TestController {
 
     private final TestFlow testFlow;
 
-    public TestController(TestFlow testFlow) {
-        this.testFlow = testFlow;
-    }
-
-    @Get(produces = MediaType.APPLICATION_JSON)
+    @Get(produces = MediaType.APPLICATION_JSON, consumes = MediaType.APPLICATION_JSON)
     @Status(HttpStatus.OK)
     public HttpResponse<TestModel> getString() {
         var testModel = testFlow.getTestModel();
