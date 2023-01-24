@@ -26,5 +26,4 @@ public class TestController {
         var testModel = testFlow.getTestModel();
         return HttpResponse.ok(testModel);
     }
-
 }
